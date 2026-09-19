@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>BMW M4 Competition Coupé | Pure M Unleashed</title>
+  <meta name="description" content="Experience the BMW M4 Competition with 503 HP S58 Twin-Turbo engine in an interactive 3D exploded view, engineered precision, and race-bred dynamics.">
+  <meta name="keywords" content="BMW M4, M4 Competition, S58 engine, 503 HP, M xDrive, BMW M Power, Luxury Coupe, Sports Car">
+  
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:title" content="BMW M4 Competition | Pure M Unleashed">
+  <meta property="og:description" content="Interactive 3D exploded engineering showcase of the BMW M4 Competition Coupe.">
+  <meta property="og:image" content="images/m4_hero_front.png">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' stroke='%23ffffff' stroke-width='4' fill='%23080808'/%3E%3Cpath d='M50 10 A40 40 0 0 1 90 50 L50 50 Z' fill='%232E9BD6'/%3E%3Cpath d='M50 50 L90 50 A40 40 0 0 1 50 90 Z' fill='%23ffffff'/%3E%3Cpath d='M50 50 L50 90 A40 40 0 0 1 10 50 Z' fill='%232E9BD6'/%3E%3Cpath d='M10 50 A40 40 0 0 1 50 10 L50 50 Z' fill='%23ffffff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Film Grain Shader Overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- BMW M Minimal Progressive Preloader -->
+  <aside class="preloader" id="preloader" aria-label="Loading BMW M4 Experience">
+    <div class="preloader-content">
+      <div class="bmw-roundel-container">
+        <svg class="bmw-roundel" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="BMW Logo">
+          <circle cx="50" cy="50" r="48" stroke="#ffffff" stroke-width="1.5" opacity="0.8"/>
+          <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <!-- 4 Quarters -->
+          <path d="M50 8 A42 42 0 0 1 92 50 L50 50 Z" fill="#2E9BD6" opacity="0.9"/>
+          <path d="M50 50 L92 50 A42 42 0 0 1 50 92 Z" fill="#ffffff" opacity="0.9"/>
+          <path d="M50 50 L50 92 A42 42 0 0 1 8 50 Z" fill="#2E9BD6" opacity="0.9"/>
+          <path d="M8 50 A42 42 0 0 1 50 8 L50 50 Z" fill="#ffffff" opacity="0.9"/>
+          <circle cx="50" cy="50" r="6" fill="#0a0a0a"/>
+        </svg>
+        <div class="roundel-pulse" aria-hidden="true"></div>
+      </div>
+      
+      <div class="preloader-meta">
+        <div class="preloader-brand">
+          <span class="m-letter">M</span><span class="m4-model">4 COMPETITION</span>
+        </div>
+        <div class="preloader-status" id="preloader-status">STREAMING EXPLODED MATRIX...</div>
+      </div>
+
+      <div class="preloader-progress-wrap">
+        <div class="preloader-bar">
+          <div class="preloader-fill" id="preloader-fill"></div>
+        </div>
+        <div class="preloader-percent" id="preloader-percent">00%</div>
+      </div>
+
+      <div class="preloader-m-stripes" aria-hidden="true">
+        <span class="stripe stripe-blue"></span>
+        <span class="stripe stripe-navy"></span>
+        <span class="stripe stripe-red"></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Global Sticky Navigation Header -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="brand-logo" aria-label="BMW M4 Home">
+        <div class="m-badge">
+          <div class="m-lines">
+            <span class="m-bar blue"></span>
+            <span class="m-bar navy"></span>
+            <span class="m-bar red"></span>
+          </div>
+          <span class="m-text">M4</span>
+        </div>
+        <span class="model-sub">COMPETITION</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#hero" class="nav-link active" data-section="hero"><span class="nav-num">01</span>EXPLODED VIEW</a>
+        <a href="#gallery" class="nav-link" data-section="gallery"><span class="nav-num">02</span>DESIGN</a>
+        <a href="#specs" class="nav-link" data-section="specs"><span class="nav-num">03</span>TELEMETRY</a>
+        <a href="#engineering" class="nav-link" data-section="engineering"><span class="nav-num">04</span>ENGINEERING</a>
+        <a href="#soundstage" class="nav-link" data-section="soundstage"><span class="nav-num">05</span>ACOUSTICS</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="sound-toggle-btn" id="sound-toggle-btn" aria-label="Toggle S58 Twin-Turbo Engine Audio">
+          <span class="sound-icon">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+          </span>
+          <span class="sound-label">S58 AUDIO</span>
+        </button>
+        <a href="#specs" class="btn-configure">
+          <span>SPECS SHEET</span>
+          <div class="btn-glow"></div>
+        </a>
+      </div>
+    </div>
+    <!-- Subtle M Accent Line -->
+    <div class="header-accent-line">
+      <span class="acc-blue"></span>
+      <span class="acc-navy"></span>
+      <span class="acc-red"></span>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER FOR LENIS -->
+  <main id="smooth-wrapper">
+
+    <!-- ========================================================
+         FEATURE 1: SCROLL-SCRUBBED HERO (EXPLODED 3D IMAGE SEQUENCE)
+         ======================================================== -->
+    <section class="hero-pinned-section" id="hero" aria-label="BMW M4 Exploded View Hero">
+      
+      <!-- Canvas Viewport (Fixed while pinned) -->
+      <div class="hero-canvas-container" id="hero-canvas-container">
+        <canvas id="hero-canvas" width="1280" height="720" aria-label="BMW M4 Exploded Diagram Canvas"></canvas>
+        
+        <!-- Vignette & Lighting Gradients -->
+        <div class="canvas-vignette" aria-hidden="true"></div>
+        <div class="canvas-ambient-glow" aria-hidden="true"></div>
+
+        <!-- HUD Corner Elements -->
+        <div class="hud-layer" aria-hidden="true">
+          <div class="hud-top-left">
+            <span class="hud-code">BMW AG // M DIVISION</span>
+            <span class="hud-coord">48°10'35.0"N 11°33'36.4"E</span>
+          </div>
+          <div class="hud-top-right">
+            <span class="hud-mode-pill">S58B30T0 // 3.0L BI-TURBO</span>
+          </div>
+          <div class="hud-bottom-left">
+            <span class="hud-spec-tag">ISLE OF MAN GREEN METALLIC</span>
+            <span class="hud-chassis">G82 CHASSIS CODE</span>
+          </div>
+          <div class="hud-bottom-right">
+            <div class="hud-frame-indicator">
+              FRAME <span id="hud-frame-num">001</span> / <span id="hud-frame-total">093</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE 0 OVERLAY (0% - 25%): "THE M4. UNLEASHED." -->
+        <div class="hero-stage stage-0" id="stage-0">
+          <div class="stage-tag"><span>01</span> // MONOLITHIC COUPE</div>
+          <h1 class="stage-headline">
+            <span class="split-line"><span class="line-inner">THE M4.</span></span>
+            <span class="split-line"><span class="line-inner highlight-glow">UNLEASHED.</span></span>
+          </h1>
+          <div class="m-tricolor-line" aria-hidden="true"></div>
+          <p class="stage-sub">Born on the Nürburgring Nordschleife. Perfected for unapologetic tarmac dominance.</p>
+        </div>
+
+        <!-- STAGE 1 OVERLAY (~25% - 60%): "503 HP. S58 TWIN-TURBO." -->
+        <div class="hero-stage stage-1" id="stage-1">
+          <div class="stage-tag"><span>02</span> // HEART OF THE BEAST</div>
+          <h2 class="stage-headline">
+            <span class="split-line"><span class="line-inner">503 HP.</span></span>
+            <span class="split-line"><span class="line-inner highlight-glow">S58 TWIN-TURBO.</span></span>
+          </h2>
+          <div class="m-tricolor-line" aria-hidden="true"></div>
+          <p class="stage-sub">3.0-liter M TwinPower Turbo inline-6. 650 Nm of relentless torque peaking at 7,200 RPM.</p>
+        </div>
+
+        <!-- STAGE 2 OVERLAY (~60% - 85%): "EVERY PART. ENGINEERED." -->
+        <div class="hero-stage stage-2" id="stage-2">
+          <div class="stage-tag"><span>03</span> // KINEMATIC SCHEMATIC</div>
+          <h2 class="stage-headline">
+            <span class="split-line"><span class="line-inner">EVERY PART.</span></span>
+            <span class="split-line"><span class="line-inner highlight-glow">ENGINEERED.</span></span>
+          </h2>
+          <div class="m-tricolor-line" aria-hidden="true"></div>
+          <p class="stage-sub">Deconstructed to perfection. Forged pistons, 3D-printed cylinder head core, and CFRP carbon chassis.</p>
+
+          <!-- Interactive Exploded Hotspots -->
+          <div class="exploded-hotspots" id="exploded-hotspots">
+            <div class="hotspot hotspot-engine" style="top: 32%; left: 47%;">
+              <button class="hotspot-dot" aria-label="S58 Twin-Turbo Core Details"><span class="pulse"></span></button>
+              <div class="hotspot-card">
+                <span class="hotspot-title">S58 POWERPLANT</span>
+                <span class="hotspot-desc">Closed-deck block with forged crankshaft & twin mono-scroll turbos.</span>
+              </div>
+            </div>
+            <div class="hotspot hotspot-brakes" style="top: 68%; left: 56%;">
+              <button class="hotspot-dot" aria-label="M Compound Brakes Details"><span class="pulse"></span></button>
+              <div class="hotspot-card">
+                <span class="hotspot-title">M COMPOUND BRAKES</span>
+                <span class="hotspot-desc">380mm drilled floating discs with 6-piston fixed front calipers.</span>
+              </div>
+            </div>
+            <div class="hotspot hotspot-chassis" style="top: 22%; left: 45%;">
+              <button class="hotspot-dot" aria-label="CFRP Carbon Shell Details"><span class="pulse"></span></button>
+              <div class="hotspot-card">
+                <span class="hotspot-title">CFRP CARBON HOOD</span>
+                <span class="hotspot-desc">Aero-contoured carbon composite for optimal weight distribution.</span>
+              </div>
+            </div>
+            <div class="hotspot hotspot-exhaust" style="top: 72%; left: 78%;">
+              <button class="hotspot-dot" aria-label="Quad M Exhaust Details"><span class="pulse"></span></button>
+              <div class="hotspot-card">
+                <span class="hotspot-title">QUAD M EXHAUST</span>
+                <span class="hotspot-desc">Active flap system delivering unfiltered straight-six symphony.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE 3 OVERLAY (~85% - 100%): "SCROLL TO EXPLORE" -->
+        <div class="hero-stage stage-3" id="stage-3">
+          <div class="stage-tag"><span>04</span> // EXPLORATION COMPLETE</div>
+          <h2 class="stage-headline">
+            <span class="split-line"><span class="line-inner">READY TO</span></span>
+            <span class="split-line"><span class="line-inner highlight-glow">EXPLORE.</span></span>
+          </h2>
+          <div class="m-tricolor-line" aria-hidden="true"></div>
+          <p class="stage-sub">Continue scrolling down to explore the design gallery, dynamic telemetry, and chassis engineering.</p>
+          
+          <div class="scroll-cue" id="scroll-cue">
+            <span class="scroll-cue-text">SCROLL TO EXPLORE</span>
+            <div class="chevron-arrow">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Global Scroll Progress Meter at Bottom -->
+        <div class="hero-progress-meter">
+          <div class="progress-track">
+            <div class="progress-thumb" id="hero-progress-thumb"></div>
+          </div>
+          <div class="progress-labels">
+            <span>0% COMPACT</span>
+            <span>35% SEPARATION</span>
+            <span>70% EXPLODED</span>
+            <span>100% DISCOVERY</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 02: HORIZONTAL SCROLL DESIGN GALLERY
+         ======================================================== -->
+    <section class="gallery-section" id="gallery" aria-label="BMW M4 Design Gallery">
+      
+      <!-- Sticky Section Header -->
+      <div class="section-intro-bar">
+        <div class="container">
+          <div class="intro-left">
+            <span class="sec-number">02 / DESIGN</span>
+            <h2 class="sec-title">SCULPTED BY THE WIND.</h2>
+          </div>
+          <div class="intro-right">
+            <p>Every curve, vent, and winglet on the BMW M4 Competition serves an uncompromising aerodynamic purpose.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Pinned Wrapper -->
+      <div class="horizontal-pin-wrapper" id="horizontal-pin-wrapper">
+        <div class="horizontal-track" id="horizontal-track">
+          
+          <!-- Slide 1: Front Aggressive Profile -->
+          <article class="gallery-card card-hero-profile">
+            <div class="card-media">
+              <img src="images/m4_hero_front.png" alt="BMW M4 Competition front three-quarter stance" loading="lazy" class="gallery-img">
+              <div class="media-overlay"></div>
+            </div>
+            <div class="card-content">
+              <div class="card-tag">AERODYNAMICS</div>
+              <h3 class="card-title">VERTICAL M KIDNEY GRILLE</h3>
+              <p class="card-desc">Maximized cooling intake apertures fed directly into high-capacity radiators, oil coolers, and charge-air heat exchangers.</p>
+              <div class="card-specs-mini">
+                <div><span>Cd</span><strong>0.34</strong></div>
+                <div><span>FRONT TRACK</span><strong>1,617 MM</strong></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 2: Interior M Carbon Bucket Seats -->
+          <article class="gallery-card card-cockpit">
+            <div class="card-media">
+              <img src="images/m4_cockpit_carbon.jpg" alt="BMW M4 Competition lightweight carbon bucket seats" loading="lazy" class="gallery-img">
+              <div class="media-overlay"></div>
+            </div>
+            <div class="card-content">
+              <div class="card-tag">ERGONOMICS</div>
+              <h3 class="card-title">M CARBON BUCKET SEATS</h3>
+              <p class="card-desc">Motorsport ergonomics save 9.6 kg over standard seats. Compatible with multi-point harnesses with illuminated M4 logos.</p>
+              <div class="card-specs-mini">
+                <div><span>WEIGHT DELTA</span><strong>-9.6 KG</strong></div>
+                <div><span>UPHOLSTERY</span><strong>MERINO LEATHER</strong></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 3: S58 TwinPower Turbo Engine Bay -->
+          <article class="gallery-card card-engine">
+            <div class="card-media">
+              <img src="images/m4_s58_engine.jpg" alt="BMW M4 S58 3.0L twin-turbo inline-6 engine bay" loading="lazy" class="gallery-img">
+              <div class="media-overlay"></div>
+            </div>
+            <div class="card-content">
+              <div class="card-tag">PROPULSION</div>
+              <h3 class="card-title">S58 TWIN-TURBO INLINE-6</h3>
+              <p class="card-desc">High-revving architecture built for track endurance. Wire-arc sprayed cylinder bores, forged crankshaft, and closed-deck crankcase.</p>
+              <div class="card-specs-mini">
+                <div><span>MAX BOOST</span><strong>2.1 BAR</strong></div>
+                <div><span>REDLINE</span><strong>7,200 RPM</strong></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 4: Rear Carbon Diffuser & Quad Exhausts -->
+          <article class="gallery-card card-rear">
+            <div class="card-media">
+              <img src="images/m4_rear_diffuser.jpg" alt="BMW M4 Competition rear carbon diffuser and quad exhausts" loading="lazy" class="gallery-img">
+              <div class="media-overlay"></div>
+            </div>
+            <div class="card-content">
+              <div class="card-tag">AERODYNAMICS & SOUND</div>
+              <h3 class="card-title">QUAD TITANIUM EXHAUST</h3>
+              <p class="card-desc">Aggressive rear diffuser channels underbody airflow while active exhaust flap valves adjust sound pressure to selected drive mode.</p>
+              <div class="card-specs-mini">
+                <div><span>TAILPIPES</span><strong>4 X 100 MM</strong></div>
+                <div><span>DIFFUSER</span><strong>CARBON FIBER</strong></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 5: Interactive Manifesto Callout -->
+          <article class="gallery-card card-summary">
+            <div class="manifesto-card-inner">
+              <span class="manifesto-eyebrow">THE STATEMENT</span>
+              <h3 class="manifesto-title">PRECISION WITHOUT COMPROMISE</h3>
+              <p class="manifesto-p">The BMW M4 Competition is an instrument of extreme precision. An authentic driver’s machine engineered for those who demand ultimate engagement.</p>
+              <div class="m-tricolor-line"></div>
+              <a href="#specs" class="btn-primary">
+                <span>EXPLORE TELEMETRY SPECS</span>
+                <span class="arrow-right">→</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 03: TELEMETRY & ANIMATED SPECS DASHBOARD
+         ======================================================== -->
+    <section class="specs-section" id="specs" aria-label="BMW M4 Competition Telemetry and Specifications">
+      <div class="container">
+        
+        <div class="section-header-centered">
+          <div class="sec-number">03 / SPECS</div>
+          <h2 class="sec-title">DYNAMIC TELEMETRY.</h2>
+          <p class="sec-subtitle">Performance metrics validated on track. Powered by the S58 3.0-liter M TwinPower Turbo.</p>
+        </div>
+
+        <!-- Interactive Drive Mode Selector -->
+        <div class="mode-selector-wrapper">
+          <div class="mode-selector-label">DRIVE DYNAMICS SELECTOR:</div>
+          <div class="mode-selector" role="tablist">
+            <button class="mode-btn active" data-mode="comfort" role="tab" aria-selected="true">
+              <span class="mode-dot"></span>
+              <span class="mode-name">EFFICIENT</span>
+            </button>
+            <button class="mode-btn" data-mode="sport" role="tab" aria-selected="false">
+              <span class="mode-dot"></span>
+              <span class="mode-name">SPORT PLUS</span>
+            </button>
+            <button class="mode-btn" data-mode="track" role="tab" aria-selected="false">
+              <span class="mode-dot"></span>
+              <span class="mode-name">M TRACK</span>
+            </button>
+            <button class="mode-btn" data-mode="drift" role="tab" aria-selected="false">
+              <span class="mode-dot"></span>
+              <span class="mode-name">2WD DRIFT MODE</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Big Metric Counters Grid -->
+        <div class="counters-grid">
+          
+          <div class="counter-card glass-panel" data-counter="hp">
+            <div class="counter-card-header">
+              <span class="metric-label">OUTPUT POWER</span>
+              <span class="metric-badge">DIN</span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="counter-number" id="counter-hp" data-target="503">0</span>
+              <span class="metric-unit">HP</span>
+            </div>
+            <div class="metric-detail" id="detail-hp">@ 6,250 RPM (375 kW)</div>
+            <div class="metric-bar-visual">
+              <div class="metric-bar-fill" style="width: 100%;"></div>
+            </div>
+          </div>
+
+          <div class="counter-card glass-panel" data-counter="accel">
+            <div class="counter-card-header">
+              <span class="metric-label">0 – 100 KM/H</span>
+              <span class="metric-badge">LAUNCH CONTROL</span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="counter-number" id="counter-accel" data-target="3.9" data-decimals="1">0.0</span>
+              <span class="metric-unit">S</span>
+            </div>
+            <div class="metric-detail" id="detail-accel">3.5 s with M xDrive All-Wheel</div>
+            <div class="metric-bar-visual">
+              <div class="metric-bar-fill" style="width: 92%;"></div>
+            </div>
+          </div>
+
+          <div class="counter-card glass-panel" data-counter="torque">
+            <div class="counter-card-header">
+              <span class="metric-label">PEAK TORQUE</span>
+              <span class="metric-badge">WIDE PLATEAU</span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="counter-number" id="counter-torque" data-target="650">0</span>
+              <span class="metric-unit">NM</span>
+            </div>
+            <div class="metric-detail" id="detail-torque">2,750 – 5,500 RPM</div>
+            <div class="metric-bar-visual">
+              <div class="metric-bar-fill" style="width: 88%;"></div>
+            </div>
+          </div>
+
+          <div class="counter-card glass-panel" data-counter="speed">
+            <div class="counter-card-header">
+              <span class="metric-label">TOP SPEED</span>
+              <span class="metric-badge">M DRIVER'S PKG</span>
+            </div>
+            <div class="metric-value-wrap">
+              <span class="counter-number" id="counter-speed" data-target="290">0</span>
+              <span class="metric-unit">KM/H</span>
+            </div>
+            <div class="metric-detail" id="detail-speed">Electronically Limited (180 MPH)</div>
+            <div class="metric-bar-visual">
+              <div class="metric-bar-fill" style="width: 95%;"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Comprehensive Technical Specs Matrix -->
+        <div class="specs-table-wrapper glass-panel">
+          <div class="table-header">
+            <h3>COMPREHENSIVE TECHNICAL ARCHITECTURE</h3>
+            <span class="table-badge">BMW M G82 SPECIFICATION</span>
+          </div>
+          
+          <div class="specs-grid">
+            <div class="spec-row">
+              <span class="spec-name">Engine Code</span>
+              <span class="spec-val">S58B30T0 TwinPower Turbo</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-name">Displacement</span>
+              <span class="spec-val">2,993 cc / 3.0 Liters</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-name">Transmission</span>
+              <span class="spec-val">8-Speed M Steptronic w/ Drivelogic</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-name">Drivetrain</span>
+              <span class="spec-val">Rear-Wheel Drive / Available M xDrive</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-name">Weight Distribution</span>
+              <span class="spec-val">50.6% Front / 49.4% Rear</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-name">Suspension</span>
+              <span class="spec-val">Adaptive M Dampers with 3 Maps</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-name">Braking Distance (100–0)</span>
+              <span class="spec-val">31.2 Meters (Carbon Ceramic)</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-name">Curb Weight</span>
+              <span class="spec-val">1,725 kg (DIN)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 04: ENGINEERING SPLIT (STICKY VISUAL + NARRATIVE)
+         ======================================================== -->
+    <section class="engineering-section" id="engineering" aria-label="BMW M4 Engineering Deep Dive">
+      <div class="container">
+        
+        <div class="engineering-split-layout">
+          
+          <!-- Sticky Visual Pillar -->
+          <div class="engineering-sticky-col">
+            <div class="sticky-media-card glass-panel" id="sticky-media-card">
+              
+              <div class="media-container">
+                <img src="images/m4_s58_engine.jpg" id="eng-img-1" class="eng-visual active" alt="S58 Twin-Turbo Engine">
+                <img src="images/m4_cockpit_carbon.jpg" id="eng-img-2" class="eng-visual" alt="M Carbon Bucket Seats">
+                <img src="images/m4_rear_diffuser.jpg" id="eng-img-3" class="eng-visual" alt="Adaptive M Differential & Exhaust">
+                <img src="images/m4_hero_front.png" id="eng-img-4" class="eng-visual" alt="CFRP Carbon Structure">
+              </div>
+
+              <div class="sticky-hud-overlay">
+                <div class="hud-chip" id="eng-hud-chip">SYSTEM: 01 // S58 PROPULSION</div>
+                <div class="m-tricolor-line"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scrolling Narrative Pillar -->
+          <div class="engineering-scroll-col">
+            
+            <div class="sec-number">04 / ENGINEERING</div>
+            <h2 class="sec-title">RACE-BRED ARCHITECTURE.</h2>
+
+            <!-- Block 1 -->
+            <article class="eng-text-block active" data-visual="eng-img-1" data-chip="SYSTEM: 01 // S58 PROPULSION">
+              <span class="block-step">01.0</span>
+              <h3 class="block-title">3D-PRINTED HEAD & FORGED CRANK</h3>
+              <p class="block-body">The cylinder head features a 3D-printed core that allows coolant passages to be routed in geometric shapes impossible with traditional metal casting. This optimizes thermal reduction around the combustion chambers, enabling a compression ratio of 9.3:1 under 2.1 bar of boost.</p>
+              <ul class="block-bullets">
+                <li>Closed-deck design withstands over 140 bar peak cylinder pressure</li>
+                <li>Twin mono-scroll turbochargers with electronic wastegates</li>
+                <li>Track-proven dry-sump inspired oil return chamber</li>
+              </ul>
+            </article>
+
+            <!-- Block 2 -->
+            <article class="eng-text-block" data-visual="eng-img-2" data-chip="SYSTEM: 02 // COCKPIT ERGONOMICS">
+              <span class="block-step">02.0</span>
+              <h3 class="block-title">M CARBON RACING BUCKETS</h3>
+              <p class="block-body">Designed for high-g lateral forces exceeding 1.3g. The structural shell is molded from pure carbon fiber reinforced plastic (CFRP) with cut-outs for multipoint racing harnesses and removable headrest cushions for helmet clearance on circuit days.</p>
+              <ul class="block-bullets">
+                <li>9.6 kg weight saving versus standard M Sport seats</li>
+                <li>Integral pneumatic side bolster adjustment</li>
+                <li>Illuminated M4 badging integrated into carbon shell</li>
+              </ul>
+            </article>
+
+            <!-- Block 3 -->
+            <article class="eng-text-block" data-visual="eng-img-3" data-chip="SYSTEM: 03 // TRACTION & EXHAUST">
+              <span class="block-step">03.0</span>
+              <h3 class="block-title">ACTIVE M DIFFERENTIAL & xDRIVE</h3>
+              <p class="block-body">An electronically controlled multi-plate clutch continuously modulates torque distribution between the rear wheels from 0% to 100% lock in milliseconds. In available M xDrive models, drivers can decouple the front axle completely with the push of a button for 100% pure rear-wheel-drive drift freedom.</p>
+              <ul class="block-bullets">
+                <li>Integrated 10-stage M Traction Control slip settings</li>
+                <li>Active M Differential integrated into dynamic stability algorithms</li>
+                <li>Four 100mm titanium-finished sport exhaust tailpipes</li>
+              </ul>
+            </article>
+
+            <!-- Block 4 -->
+            <article class="eng-text-block" data-visual="eng-img-4" data-chip="SYSTEM: 04 // CHASSIS TORSION">
+              <span class="block-step">04.0</span>
+              <h3 class="block-title">TORSIONAL RIGIDITY & ADAPTIVE DAMPING</h3>
+              <p class="block-body">A network of underhood and underbody shear plates, strut-to-tower carbon braces, and aluminum subframe ties elevate torsional rigidity to racecar standards. Continuously variable electromagnetic valves in the Adaptive M Dampers adjust in microseconds according to road sensor telemetry.</p>
+              <ul class="block-bullets">
+                <li>Aluminum front shear panel directly bolted to side members</li>
+                <li>CFRP lightweight carbon fiber roof lowers center of gravity</li>
+                <li>Dual-rate electric power steering with variable M rack ratio</li>
+              </ul>
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 05: INTERACTIVE S58 ACOUSTIC STUDIO
+         ======================================================== -->
+    <section class="soundstage-section" id="soundstage" aria-label="BMW M4 S58 Soundstage">
+      <div class="container">
+        
+        <div class="soundstage-panel glass-panel">
+          <div class="soundstage-header">
+            <div class="sec-number">05 / ACOUSTICS</div>
+            <h2 class="sec-title">THE S58 SOUNDSTAGE.</h2>
+            <p class="soundstage-desc">Interact with the throttle pad below to ignite and rev the high-output S58 inline-six engine through its active exhaust valves.</p>
+          </div>
+
+          <div class="acoustic-interactive-grid">
+            
+            <!-- RPM Tachometer Dial -->
+            <div class="tachometer-wrapper">
+              <svg class="tacho-gauge" viewBox="0 0 200 200" aria-hidden="true">
+                <circle cx="100" cy="100" r="80" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="none" stroke-dasharray="376" stroke-dashoffset="94"/>
+                <circle class="tacho-progress" id="tacho-progress" cx="100" cy="100" r="80" stroke="url(#m-gradient)" stroke-width="8" fill="none" stroke-dasharray="376" stroke-dashoffset="376"/>
+                <defs>
+                  <linearGradient id="m-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#2E9BD6"/>
+                    <stop offset="50%" stop-color="#16438E"/>
+                    <stop offset="100%" stop-color="#E7222E"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="tachometer-center">
+                <span class="tacho-value" id="tacho-value">850</span>
+                <span class="tacho-unit">RPM</span>
+                <span class="tacho-redline">LIMIT 7,200</span>
+              </div>
+            </div>
+
+            <!-- Throttle Pad Control -->
+            <div class="throttle-controls">
+              <button class="throttle-pedal-btn" id="throttle-btn" aria-label="Press and hold to rev S58 engine">
+                <div class="pedal-ribs">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="pedal-label">
+                  <span class="pedal-title">PRESS & HOLD THROTTLE</span>
+                  <span class="pedal-sub">REV THE S58 TWIN-TURBO</span>
+                </div>
+                <div class="pedal-glow"></div>
+              </button>
+
+              <div class="exhaust-mode-toggle">
+                <span>EXHAUST VALVES:</span>
+                <button class="valve-btn active" id="valve-btn">OPEN // SPORT TRACK</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 06: LUXURY FOOTER
+         ======================================================== -->
+    <footer class="site-footer" id="footer" aria-label="Footer">
+      
+      <!-- BMW M Signature Tricolor Ribbon -->
+      <div class="footer-m-ribbon" aria-hidden="true">
+        <span class="m-ribbon-blue"></span>
+        <span class="m-ribbon-navy"></span>
+        <span class="m-ribbon-red"></span>
+      </div>
+
+      <div class="container footer-content">
+        
+        <div class="footer-top">
+          <div class="footer-brand-col">
+            <div class="m-badge footer-logo">
+              <div class="m-lines">
+                <span class="m-bar blue"></span>
+                <span class="m-bar navy"></span>
+                <span class="m-bar red"></span>
+              </div>
+              <span class="m-text">BMW M4</span>
+            </div>
+            <p class="footer-tagline">THE ULTIMATE DRIVING MACHINE // M DIVISION</p>
+            <p class="footer-disclaimer">Fuel consumption (combined): 10.1–10.0 l/100 km; CO2 emissions (combined): 230–227 g/km (WLTP). Official data based on European specifications.</p>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-heading">MODEL LINEUP</span>
+            <ul>
+              <li><a href="#hero">M4 Coupe</a></li>
+              <li><a href="#specs">M4 Competition Coupe</a></li>
+              <li><a href="#engineering">M4 Competition xDrive</a></li>
+              <li><a href="#gallery">M4 CS & CSL Heritage</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-heading">PERFORMANCE</span>
+            <ul>
+              <li><a href="#specs">S58 Engine Specs</a></li>
+              <li><a href="#engineering">M Carbon Ceramic Brakes</a></li>
+              <li><a href="#engineering">M xDrive AWD System</a></li>
+              <li><a href="#soundstage">M Sport Exhaust</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-heading">M EXPERIENCES</span>
+            <ul>
+              <li><a href="#hero">BMW M Driving Academy</a></li>
+              <li><a href="#hero">Nürburgring Hot Laps</a></li>
+              <li><a href="#hero">M Track Days Global</a></li>
+              <li><a href="#hero">Find an M Certified Dealer</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="copyright">
+            © 2026 Bayerische Motoren Werke AG. BMW M and the BMW M logo are registered trademarks.
+          </div>
+          <div class="footer-actions">
+            <button class="back-to-top-btn" id="back-to-top" aria-label="Return to top of page">
+              <span>BACK TO TOP</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 19V5M5 12l7-7 7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- External Script Libraries: Lenis & GSAP ScrollTrigger -->
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Main Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>
